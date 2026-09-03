@@ -10,7 +10,7 @@ import axios from "axios";
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8080";
 
 //2. 부품 + export
-export default function OAuth2CallbackPapge(){
+export default function OAuth2CallbackPage(){
     const router   = useRouter();  // 경로이동
     const dispatch = useDispatch();// 스토어알림
 
@@ -30,7 +30,7 @@ export default function OAuth2CallbackPapge(){
 
     const fetchUser = async( accessToken)=>{ 
         try{
-            const res = await axios.get("${API_BASE_URL}/auth/me", {
+            const res = await axios.get(`${API_BASE_URL}/auth/me`, {
                 headers: { Authorization: `Bearer ${accessToken}` },
                 withCredentials: true,  //쿠키전송용
             });
